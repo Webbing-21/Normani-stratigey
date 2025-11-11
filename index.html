@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة التسويق - مصنع نورماني</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            direction: rtl;
+        }
+
+        .presentation {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #764ba2;
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-right: 0;
+        }
+
+        li {
+            padding: 12px 0;
+            padding-right: 30px;
+            position: relative;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        li:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1em;
+        }
+
+        tr:hover {
+            background: #f5f7fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            padding: 25px;
+            background: #f5f7fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-right: 5px solid #667eea;
+        }
+
+        .phase {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .cover-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cover-slide h1 {
+            color: white;
+            font-size: 4em;
+            margin-bottom: 30px;
+        }
+
+        .cover-slide .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.5em;
+        }
+
+        .logo {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                margin: 0;
+            }
+            .controls {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+
+    <div class="presentation">
+        <!-- Slide 1: Cover -->
+        <div class="slide cover-slide">
+            <div class="logo">👗</div>
+            <h1>مصنع نورماني</h1>
+            <p class="subtitle">خطة تسويقية متكاملة لملابس البنات الكاجوال</p>
+            <p class="subtitle" style="font-size: 1.2em; margin-top: 40px;">📅 خطة 3 شهور قابلة للتطبيق</p>
+        </div>
+
+        <!-- Slide 2: Brand Identity -->
+        <div class="slide">
+            <h2>🎯 هوية البراند</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">👔</div>
+                    <h3>المنتجات</h3>
+                    <ul>
+                        <li>بنطلونات عصرية</li>
+                        <li>تيشيرتات كاجوال</li>
+                        <li>جاكيتات أنيقة</li>
+                        <li>أطقم متنوعة</li>
+                        <li>فساتين كاجوال</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="icon">✨</div>
+                    <h3>الشخصية</h3>
+                    <ul>
+                        <li>عصري وشبابي</li>
+                        <li>جودة محلية قوية</li>
+                        <li>أسعار مناسبة</li>
+                        <li>نغمة مرحة وواثقة</li>
+                        <li>ستايل بسيط وأنثوي</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Target Audience -->
+        <div class="slide">
+            <h2>🎯 الجمهور المستهدف</h2>
+            <div class="highlight">
+                بنات من 18 إلى 36 سنة
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">📍</div>
+                    <h3>المواقع</h3>
+                    <ul>
+                        <li>القاهرة والجيزة</li>
+                        <li>الإسكندرية</li>
+                        <li>مدن الدلتا</li>
+                        <li>المحافظات الكبرى</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="icon">💝</div>
+                    <h3>الاهتمامات</h3>
+                    <ul>
+                        <li>الموضة والستايل</li>
+                        <li>الشوبينج والتسوق</li>
+                        <li>السفر والتصوير</li>
+                        <li>الخروج مع الأصدقاء</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 1.2em; color: #666;">
+                <strong>الطبقة الاجتماعية:</strong> متوسطة وفوق المتوسطة
+            </p>
+        </div>
+
+        <!-- Slide 4: Month 1 -->
+        <div class="slide">
+            <h2>📅 الشهر الأول: التأسيس</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="phase">الهدف</span>
+                    <p style="font-size: 1.2em; margin-top: 10px;">تقوية هوية البراند وزيادة المتابعين الحقيقيين</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>الأنشطة الأساسية</h3>
+                    <ul>
+                        <li>تحليل السوق والمنافسين</li>
+                        <li>تصميم هوية بصرية موحدة</li>
+                        <li>إنشاء خطة محتوى أسبوعية</li>
+                        <li>تهيئة الموقع الإلكتروني</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Content Plan -->
+        <div class="slide">
+            <h2>📱 خطة المحتوى الأسبوعية</h2>
+            <table>
+                <tr>
+                    <th>نوع المحتوى</th>
+                    <th>التكرار</th>
+                    <th>الهدف</th>
+                </tr>
+                <tr>
+                    <td>صور المنتجات</td>
+                    <td>3 بوستات</td>
+                    <td>عرض التشكيلة</td>
+                </tr>
+                <tr>
+                    <td>Reels Mix & Match</td>
+                    <td>1 فيديو</td>
+                    <td>تنسيق الإطلالات</td>
+                </tr>
+                <tr>
+                    <td>خلف الكواليس</td>
+                    <td>1 فيديو</td>
+                    <td>بناء الثقة</td>
+                </tr>
+                <tr>
+                    <td>ستوري تفاعلي</td>
+                    <td>1 يومياً</td>
+                    <td>التفاعل المباشر</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 6: Month 2 -->
+        <div class="slide">
+            <h2>💥 الشهر الثاني: النمو</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="phase">الهدف</span>
+                    <p style="font-size: 1.2em; margin-top: 10px;">زيادة التفاعل والمبيعات والوصول لجمهور جديد</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>🎯 إعلانات ممولة Meta Ads</h3>
+                    <ul>
+                        <li>استهداف: بنات 18-36 سنة مهتمات بالموضة</li>
+                        <li>المناطق: القاهرة، الإسكندرية، الجيزة، طنطا، المنصورة</li>
+                        <li>الميزانية: 200-400 جنيه يومياً</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>🌟 التعاون مع Influencers</h3>
+                    <ul>
+                        <li>مايكرو إنفلونسرز (5-20 ألف متابع)</li>
+                        <li>Reels طبيعية وحقيقية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Month 3 -->
+        <div class="slide">
+            <h2>🛍️ الشهر الثالث: التحويل</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">🎁</div>
+                    <h3>العروض</h3>
+                    <ul>
+                        <li>كود خصم للطلب الأول</li>
+                        <li>برنامج ولاء ونقاط</li>
+                        <li>خصم 50 جنيه لكل 500</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="icon">🎯</div>
+                    <h3>الاستراتيجيات</h3>
+                    <ul>
+                        <li>حملات Retargeting</li>
+                        <li>صور Lifestyle حقيقية</li>
+                        <li>واتساب ماركتنج أسبوعي</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Platforms -->
+        <div class="slide">
+            <h2>📱 المنصات الرقمية</h2>
+            <table>
+                <tr>
+                    <th>المنصة</th>
+                    <th>نوع المحتوى</th>
+                    <th>التكرار</th>
+                    <th>الهدف</th>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td>صور + Reels + Stories</td>
+                    <td>5 مرات أسبوعياً</td>
+                    <td>الأساس البصري</td>
+                </tr>
+                <tr>
+                    <td>Facebook</td>
+                    <td>Reels + بوستات</td>
+                    <td>4 مرات أسبوعياً</td>
+                    <td>الانتشار في مصر</td>
+                </tr>
+                <tr>
+                    <td>TikTok</td>
+                    <td>فيديوهات موضة</td>
+                    <td>3 مرات أسبوعياً</td>
+                    <td>زيادة الوصول</td>
+                </tr>
+                <tr>
+                    <td>Website</td>
+                    <td>منتجات + مقالات</td>
+                    <td>مرتين شهرياً</td>
+                    <td>تحسين SEO</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Slide 9: Budget -->
+        <div class="slide">
+            <h2>💰 توزيع الميزانية الشهرية</h2>
+            <table>
+                <tr>
+                    <th>البند</th>
+                    <th>النسبة</th>
+                    <th>المبلغ (جنيه)</th>
+                </tr>
+                <tr>
+                    <td>إعلانات ممولة</td>
+                    <td>40%</td>
+                    <td>6,000 - 8,000</td>
+                </tr>
+                <tr>
+                    <td>تصوير وموشن</td>
+                    <td>25%</td>
+                    <td>4,000 - 5,000</td>
+                </tr>
+                <tr>
+                    <td>إدارة صفحات ومحتوى</td>
+                    <td>25%</td>
+                    <td>4,000 - 5,000</td>
+                </tr>
+                <tr>
+                    <td>Influencers وهدايا</td>
+                    <td>10%</td>
+                    <td>2,000</td>
+                </tr>
+            </table>
+            <div class="highlight" style="margin-top: 30px;">
+                إجمالي الميزانية الشهرية: 16,000 - 20,000 جنيه
+            </div>
+        </div>
+
+        <!-- Slide 10: KPIs -->
+        <div class="slide">
+            <h2>📊 مؤشرات النجاح (KPIs)</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">📈</div>
+                    <h3>النمو</h3>
+                    <p style="font-size: 1.3em; margin: 20px 0;">زيادة المتابعين</p>
+                    <div class="highlight">20-30% شهرياً</div>
+                </div>
+                <div class="card">
+                    <div class="icon">💬</div>
+                    <h3>التفاعل</h3>
+                    <p style="font-size: 1.3em; margin: 20px 0;">متوسط التفاعل</p>
+                    <div class="highlight">> 3% لكل بوست</div>
+                </div>
+                <div class="card">
+                    <div class="icon">🌐</div>
+                    <h3>الزيارات</h3>
+                    <p style="font-size: 1.3em; margin: 20px 0;">زوار الموقع</p>
+                    <div class="highlight">> 300 يومياً</div>
+                </div>
+                <div class="card">
+                    <div class="icon">💰</div>
+                    <h3>المبيعات</h3>
+                    <p style="font-size: 1.3em; margin: 20px 0;">النمو الشهري</p>
+                    <div class="highlight">15-20%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Closing -->
+        <div class="slide cover-slide">
+            <div class="logo">✨</div>
+            <h1>جاهزون للانطلاق!</h1>
+            <p class="subtitle">مصنع نورماني - حيث تلتقي الموضة بالجودة</p>
+            <p style="margin-top: 50px; font-size: 1.3em;">
+                📞 للاستفسار والمتابعة<br>
+                📧 info@normany.com
+            </p>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="window.print()">🖨️ طباعة</button>
+        <button class="btn" onclick="scrollToTop()">⬆️ البداية</button>
+    </div>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            document.getElementById('progress').style.width = scrolled + '%';
+        });
+
+        // Smooth scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.slide').forEach(slide => {
+            observer.observe(slide);
+        });
+    </script>
+</body>
+</html>
